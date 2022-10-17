@@ -1,0 +1,33 @@
+.cart {
+	position: sticky;
+	top: 10px;
+}
+.clear-cart {
+	background-color: #ff3030;
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	color: white;
+}
+
+.review-order {
+	background-color: #ff9900;
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	color: white;
+}
+
+.clear-review-btn {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.clear-review-btn button {
+	cursor: pointer;
+}
+
+.icon-clear-or-revie {
+	margin-left: 5px;
+}
