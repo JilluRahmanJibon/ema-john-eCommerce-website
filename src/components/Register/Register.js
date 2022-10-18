@@ -1,36 +1,41 @@
+import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import React, { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./Login.css";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserContext";
-const Login = () => {
-	const { signWithPasswordAndEmail, signInWithGoogle } =
-		useContext(AuthContext);
+import "./Register.css";
+
+const Register = () => {
+	const [error, setError] = useState(null);
+	const { createUser, signInWithGoogle } = useContext(AuthContext);
 	const navigate = useNavigate();
-	const location = useLocation();
-	const from = location.state?.from?.pathname || "/";
-	const logInWithEmailAndPassword = event => {
+	const createUserEmailAndPassword = event => {
 		event.preventDefault();
 		const form = event.target;
 		const email = form.email.value;
 		const password = form.password.value;
-		signWithPasswordAndEmail(email, password)
+		const confirm = form.confirm.value;
+		if (password !== confirm) {
+			setError("Your password didn't match, Please try again");
+		}
+		if (password.length < 6) {
+			setError("Your password should be at least 6 character long");
+		}
+		createUser(email, password)
 			.then(result => {
 				const user = result.user;
 				form.reset();
-				navigate(from, { replace: true });
+				navigate("/");
 			})
 			.catch(error => {
 				console.error("error: ", error);
 			});
 	};
-
 	const continueWithGoogle = () => {
 		signInWithGoogle()
 			.then(result => {
 				const user = result.user;
 				console.log(user);
-				navigate(from, { replace: true });
+				navigate("/");
 			})
 			.catch(error => {
 				console.error("error: ", error);
@@ -38,8 +43,10 @@ const Login = () => {
 	};
 	return (
 		<div className="form-container">
-			<form onSubmit={logInWithEmailAndPassword}>
-				<h1 className="form-title">Login</h1>
+			<p>{error}</p>
+			<form onSubmit={createUserEmailAndPassword}>
+				<h1 className="form-title">Sign Up</h1>
+
 				<div className="form-control">
 					<label htmlFor="email">Email</label>
 					<input required type="email" placeholder="email" name="email" id="" />
@@ -51,14 +58,24 @@ const Login = () => {
 						type="password"
 						placeholder="password"
 						name="password"
-						id="password"
+						id=""
 					/>
 				</div>
-				<input className="submit-btn" type="submit" value="Login" />
+				<div className="form-control">
+					<label htmlFor="confirm ">Confirm Password</label>
+					<input
+						required
+						type="password"
+						placeholder="confirm password"
+						name="confirm"
+						id=""
+					/>
+				</div>
+				<input className="submit-btn" type="submit" value="Sign Up" />
 			</form>
 			<p className="login-signUp">
 				{" "}
-				New to Ema-john? <Link to="/register">Create New Account</Link>
+				Already have an Account? <Link to="/login">Login</Link>
 			</p>
 			<p className="or">-------or--------</p>
 			<button onClick={continueWithGoogle} className="continueWithGoogle">
@@ -68,4 +85,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Register;

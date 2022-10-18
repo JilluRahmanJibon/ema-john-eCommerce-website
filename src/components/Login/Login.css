@@ -1,0 +1,92 @@
+.form-container {
+	width: 500px;
+	margin: 30px auto;
+	border: 1px solid #95a0a7;
+	border-radius: 8px;
+	padding: 49px;
+}
+
+.form-title {
+	font-family: "Lato";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 35px;
+	line-height: 42px;
+	text-align: center;
+	letter-spacing: 0.0025em;
+	color: #2a414f;
+}
+
+.form-control {
+	margin-bottom: 20px;
+}
+.form-control label {
+	display: block;
+	font-weight: 400;
+	font-size: 17px;
+	line-height: 20px;
+	letter-spacing: 0.0015em;
+	margin-bottom: 10px;
+	color: #2a414f;
+}
+.form-control input {
+	width: 415px;
+	height: 55px;
+	border: 1px solid #95a0a7;
+	border-radius: 5px;
+	font-size: 1.5rem;
+	padding-left: 10px;
+}
+.submit-btn {
+	background: rgba(255, 153, 0, 0.3);
+	border: none;
+	width: 430px;
+	margin-top: 45px;
+	height: 55px;
+	border-radius: 5px;
+	font-family: "Lato";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 25px;
+	letter-spacing: 0.0015em;
+	color: #0e161a;
+}
+.submit-btn:hover {
+	background: rgba(255, 153, 0, 0.6);
+}
+.login-signUp {
+	text-align: center;
+	font-family: "Lato";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 18px;
+	letter-spacing: 0.0025em;
+	color: #2a414f;
+}
+.login-signUp a {
+	color: #ff9900;
+}
+.or {
+	text-align: center;
+}
+.continueWithGoogle {
+	border: none;
+	width: 430px;
+	margin-top: 45px;
+	height: 55px;
+	border-radius: 5px;
+	font-family: "Lato";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 25px;
+	letter-spacing: 0.0015em;
+	color: #0e161a;
+	background: white;
+	border: 2px solid rgb(205, 193, 193);
+}
+.continueWithGoogle:hover {
+	background: rgb(203, 201, 201);
+}

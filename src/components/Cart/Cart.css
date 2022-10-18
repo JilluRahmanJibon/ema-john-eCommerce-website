@@ -31,3 +31,10 @@
 .icon-clear-or-revie {
 	margin-left: 5px;
 }
+.proceed-shipping {
+	background-color: green;
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	color: white;
+}

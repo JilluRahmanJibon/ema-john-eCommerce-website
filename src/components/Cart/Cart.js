@@ -5,7 +5,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./Cart.css";
-const Cart = ({ cart, clearCart }) => {
+const Cart = ({ cart, clearCart, children }) => {
 	let total = 0;
 	let shipping = 0;
 	let quantity = 0;
@@ -35,16 +35,8 @@ const Cart = ({ cart, clearCart }) => {
 							icon={faTrashCan}></FontAwesomeIcon>{" "}
 					</p>
 				</button>
-				<Link to="/orders">
-					<button className="review-order">
-						<p>
-							Review Order{" "}
-							<FontAwesomeIcon
-								className="icon-clear-or-revie"
-								icon={faArrowRightLong}></FontAwesomeIcon>
-						</p>
-					</button>
-				</Link>
+
+				{children}
 			</div>
 		</div>
 	);
