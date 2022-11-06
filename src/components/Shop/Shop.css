@@ -14,3 +14,6 @@
 	background-color: #ffe0b3;
 	padding: 20px;
 }
+.pagination .selected {
+	background-color: red;
+}
